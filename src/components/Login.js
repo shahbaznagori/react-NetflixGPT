@@ -1,24 +1,64 @@
 import Header from "./Header";
 import {useState , useRef} from "react";
 import validateForm from "../common/utils/validate";
+import { signInWithGoogle } from "../common/utils/googleAuth";
+import {useNavigate} from "react-router";
+
+
+
 
 const Login = ()=>{
+    const navigate = useNavigate();
 
     const [signInForm, setSignInForm] = useState(true);
     const [error, setError] = useState(null);
     const email  = useRef(null);
     const password = useRef(null);
     const name = useRef(null);
-    
-    const handleButtonClick = (f)=>{
 
- 
-       const message =validateForm(email.current.value, password.current.value , name?.current.value);
+
+const handleGoogleLogin = async () => {
+  try {
+    const { user, token ,isNewUser} = await signInWithGoogle();
+
+    console.log("USER:", user);
+    console.log("TOKEN:", token);
+    console.log("isNewUser:", isNewUser);
+
+     if (isNewUser) {
+      console.log("👉 Signup flow");
+      navigate("/browse");
+    } else {
+      console.log("👉 Login flow");
+      navigate("/browse");
+    }
+
+
+    // 👉 Next step: store user / redirect
+
+  } catch (err) {
+    console.error(err);
+    setError(err.message);
+  }
+};
+    
+    const handleButtonClick = ()=>{
+
+      console.log(name?.current?.value);
+       const message =validateForm(email.current.value, password.current.value , name?.current?.value);
        if(message){
          setError(message);
+         return;
        }else setError(null);
 
 
+       if(signInForm){
+    }else{
+        console.log("SIGNNING UP")
+
+        //    auth()
+        console.log("Sign Up");
+       }
         
     }
 
@@ -55,6 +95,14 @@ const Login = ()=>{
            <p className="text-red-500 text-sm">{error}</p>
            <button className='p-4 my-6 bg-red-700 w-full rounded-lg' onClick={handleButtonClick}>{signInForm ? "Sign In" : "Sign Up"}</button>
            <p className="py-4 text-sm cursor-pointer" onClick={toggleSignInForm}>{signInForm ? "New to Netflix? Sign up now." : "Already registered? Sign In now."}</p>
+           <button className="p-4 my-5 bg-red-700 w-full rounded-lg flex items-center" onClick={handleGoogleLogin}>
+  <img 
+    className="w-6 mr-2 rounded-lg"
+    src="https://developers.google.com/identity/images/g-logo.png" 
+    alt="google"
+  />
+  <p className="text-lg w-full">Continue with Google</p> 
+</button>
         </form>
         </div>
     )
