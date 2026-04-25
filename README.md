@@ -4,9 +4,12 @@
 
 -Create React App
 -Congigured Tailwind CSS
+-Routing for form
 -Header 
 -Login Form
 -Sign up Form
+-Form validation
+-useRef hook
 
 # Features
 - Login/Sign Up
