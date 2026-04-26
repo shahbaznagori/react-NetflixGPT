@@ -2,13 +2,11 @@ import Header from "./Header";
 import {useState , useRef} from "react";
 import validateForm from "../common/utils/validate";
 import { signInWithGoogle } from "../common/utils/googleAuth";
-import {useNavigate} from "react-router";
 
 
 
 
 const Login = ()=>{
-    const navigate = useNavigate();
 
     const [signInForm, setSignInForm] = useState(true);
     const [error, setError] = useState(null);
@@ -24,14 +22,6 @@ const handleGoogleLogin = async () => {
     console.log("USER:", user);
     console.log("TOKEN:", token);
     console.log("isNewUser:", isNewUser);
-
-     if (isNewUser) {
-      console.log("👉 Signup flow");
-      navigate("/browse");
-    } else {
-      console.log("👉 Login flow");
-      navigate("/browse");
-    }
 
 
     // 👉 Next step: store user / redirect

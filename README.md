@@ -21,6 +21,18 @@
 - Implemented Redux Store with user slice
 - Implemented Sign out feature
 - Fetch Movies from TMDB
+- Unsubscribe to the onAuthStateChanged callback
+- Add hardcoded values to the constant files.
+- Registered TMDB API & create an app & get access token
+- Get data from TMDB now playing movies list API
+- Custom hooks or now Playing Movies
+- Create MovieSlice
+- Update store with movies data
+- Planning for main container and movies container
+- Fetch data for trailer vedio
+- Update Store with Trailer vedio data
+- Embedded the youtube vedio and make it autoplay and mute 
+- Tailwind classes to make Main container look awesome
 
 # Features
 - Login/Sign Up
