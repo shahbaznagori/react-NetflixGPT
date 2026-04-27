@@ -39,6 +39,10 @@
 - Findout TMDB IMAGE CDN
 - Made the browse page amazing with tailwindCSS
 - Use custom hooks for popular , trending movies.
+- GPT Search Feature
+- GPT Search Page
+- Multi Language Feature in our App
+- Integrate GPT API     
 
 # Features
 - Login/Sign Up

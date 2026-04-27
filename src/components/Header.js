@@ -6,11 +6,26 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import {useDispatch} from "react-redux";
 import {addUser, removeUser} from "../common/utils/userSlice";
+import {toggleGPTSearchView} from "../common/utils/gptSlice";
+import {SUPPORTED_LANGUAGES} from "../common/utils/Contants";
+import {changeLanguage} from "../common/utils/configSlice";
+
 
 const Header = ()=>{
     const navigate = useNavigate();
 
+    const gptSerachView = useSelector(store=>store.gpt.showGPTSearch);
         const dispatch = useDispatch();
+
+       const handleGPTSearchView=()=>{
+            dispatch(toggleGPTSearchView(gptSerachView));
+        }
+
+        const handleLanguageChange =(e)=>{
+            dispatch(changeLanguage(e.target.value));
+        }
+
+
 useEffect(()=>{
    
    const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -56,6 +71,15 @@ useEffect(()=>{
             alt = "Netflix-logo"
             ></img>
         {user  && (<div className="flex">
+         <select className="h-10 mt-5 px-4 bg-gray-700" onChange={handleLanguageChange}>
+            {SUPPORTED_LANGUAGES.map( (lang)=>( <option 
+             className="text-white"
+            key={lang.identifier}>{lang.name}</option>))}
+         </select>
+        <button
+          onClick={handleGPTSearchView}
+          className="text-white m-4 h-10 px-2 bg-red-600 rounded-full">
+            {gptSerachView ? "Homepage" :"GPT Search"}</button>
         <img
         className="w-10 h-9 m-4 rounded-full"
         src={user.photoURL}
