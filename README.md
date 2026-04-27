@@ -33,6 +33,12 @@
 - Update Store with Trailer vedio data
 - Embedded the youtube vedio and make it autoplay and mute 
 - Tailwind classes to make Main container look awesome
+- Build Secondary component
+- Build Movie list
+- Build Movie Card
+- Findout TMDB IMAGE CDN
+- Made the browse page amazing with tailwindCSS
+- Use custom hooks for popular , trending movies.
 
 # Features
 - Login/Sign Up
