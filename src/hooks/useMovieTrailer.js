@@ -3,10 +3,12 @@ import {API_OPTIONS} from "../common/utils/Contants";
 import { useEffect } from "react";
 import {useDispatch} from "react-redux"
 import { addTrailerVedio } from "../common/utils/moviesSlice";
+import {useSelector} from "react-redux";
 
 const useMovieTrailer = (movieId)=>{
     
     const dispatch = useDispatch();
+    const trailer = useSelector(state=>state.movies.trailer);
  
  //fething movie vedios
 
@@ -21,7 +23,7 @@ const useMovieTrailer = (movieId)=>{
 }
 
 useEffect(()=>{
-   const trailer = getMovieVedios();
+   if(!trailer) getMovieVedios();
    
 },[])
 
