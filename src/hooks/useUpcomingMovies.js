@@ -25,6 +25,7 @@ const getNowPlayingMovies = async () => {
 
     useEffect(() => {
       if(!upcomingMovies)  getNowPlayingMovies();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
 
 }
