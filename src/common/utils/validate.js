@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
  const FormValidator =(email, password , name=null)=>{
 
 
