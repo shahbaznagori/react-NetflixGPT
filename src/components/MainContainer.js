@@ -10,7 +10,7 @@ const MainContainer = ()=>{
     console.log("MAIN MOVIEID",id);
 
     // console.log("NP",movies);
-    return (<div>
+    return (<div className="pt-[30%] bg-black md:pt-0">
         <VideoTitle title = {original_title} overview = {overview}/>
         <VideoBackground  movieId={id}/>
     </div>)

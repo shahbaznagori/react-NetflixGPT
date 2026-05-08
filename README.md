@@ -43,6 +43,15 @@
 - GPT Search Page
 - Multi Language Feature in our App
 - Integrate GPT API     
+- Get Open API key
+- Gpt Search API Call
+- Fetched GPT Movie Suggestions from TMDB
+- Created GPT Slice added data 
+- Reused movies list component to make movie suggestion container 
+- Memoization
+- Added .env file
+- Adding .env file to .gitignore
+- Made the site responsive
 
 # Features
 - Login/Sign Up
